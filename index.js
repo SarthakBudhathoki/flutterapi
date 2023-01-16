@@ -3,7 +3,7 @@ const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 const logger = require('./logger')
-const plantsRouter = require('./routes/plants-routes')
+const SoldItemRouter = require('./routes/SoldItem-routes')
 const categoryRouter = require('./routes/category-routes')
 const userRouter = require('./routes/users-routes')
 const profileRouter = require('./routes/profile-routes')
@@ -12,7 +12,7 @@ const auth = require('./middelware/auth')
 const app = express()
 const port =  3000
 
-mongoose.connect(`mongodb://127.0.0.1:27017/plants`)
+mongoose.connect(`mongodb://127.0.0.1:27017/crushed`)
     .then(()=>{
         console.log('Connected')
         app.listen(port, ()=>{
@@ -40,7 +40,7 @@ app.get('^/$|/index(.html)?', (req, res) => {
 
 app.use('/users', userRouter)
 app.use(auth.verifyUser)
-app.use('/plants', plantsRouter)
+app.use('/SoldItem', SoldItemRouter)
 app.use('/profile', profileRouter)
 app.use('/categories', categoryRouter)
 // Error handling middleware

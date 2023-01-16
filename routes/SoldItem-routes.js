@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const plantController = require('../controllers/plant-controller')
+const plantController = require('../controllers/SoldItem-controller')
 const reviewController = require('../controllers/review-controller')
 const { verifyUser, verifyManager, verifyAdmin } = require('../middelware/auth')
 

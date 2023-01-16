@@ -12,9 +12,9 @@ const saveLogItem = (logItem) => {
     if(!fs.existsSync('logs'))
         fs.mkdir(path.join(__dirname, 'logs'), (err) => console.error(err))
     
-   fs.appendFile(path.join(__dirname, 'logs', 'event-logs.txt'), logItem, (err) => {
+    fs.appendFile(path.join(__dirname, 'logs', 'event-logs.txt'), logItem, (err) => {
         if(err) console.error(err)
-   })
+    })
 }
 
 const log = (message) => saveLogItem(createLogItem(message))
